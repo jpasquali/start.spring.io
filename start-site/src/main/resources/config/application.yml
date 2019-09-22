@@ -1,0 +1,11 @@
+springone:
+    dependencies:
+      - name: My Companies Dependencies
+        content:
+          - name: The perfect lib
+            id: perfect-lib
+            groupId: com.mycompany
+            artifactId: perfect-lib-artifact
+            starter: false
+            description: Great library to do whatever you want
+            version: 1.0.0
