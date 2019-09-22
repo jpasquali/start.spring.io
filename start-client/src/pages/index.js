@@ -412,6 +412,18 @@ class IndexPage extends React.Component {
                       }}
                     />
                   </div>
+                  <div className='control'>
+                    <label htmlFor='input-applicationId'>Application Id</label>
+                    <input
+                      type='text'
+                      id='input-applicationId'
+                      className='control-input'
+                      value={this.state.meta.applicationId}
+                      onChange={event => {
+                        this.updateMeta('applicationId', event.target.value)
+                      }}
+                    />
+                  </div>
                   <div className='more'>
                     <div className='wrap'>
                       <a

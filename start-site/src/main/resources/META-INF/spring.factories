@@ -1,3 +1,5 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=com.springone.config.SpringOneInitializrAutoConfiguration
+
 io.spring.initializr.generator.project.ProjectGenerationConfiguration=\
 io.spring.start.site.extension.build.gradle.GradleProjectGenerationConfiguration,\
 io.spring.start.site.extension.build.maven.MavenProjectGenerationConfiguration,\
@@ -8,4 +10,5 @@ io.spring.start.site.extension.dependency.springcloud.SpringCloudProjectGenerati
 io.spring.start.site.extension.dependency.springdata.SpringDataProjectGenerationConfiguration,\
 io.spring.start.site.extension.dependency.springintegration.SpringIntegrationProjectGenerationConfiguration,\
 io.spring.start.site.extension.dependency.springrestdocs.SpringRestDocsProjectGenerationConfiguration,\
-io.spring.start.site.extension.code.kotin.KotlinProjectGenerationConfiguration
+io.spring.start.site.extension.code.kotin.KotlinProjectGenerationConfiguration, \
+com.springone.generation.config.SpringOneProjectGenerationConfiguration

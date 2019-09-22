@@ -16,6 +16,7 @@ const PROPERTIES_MAPPING_URL = {
   name: 'meta.name',
   description: 'meta.description',
   packageName: 'meta.packageName',
+  applicationId: 'meta.applicationId',
 }
 
 export const getDefaultValues = json => {
@@ -30,6 +31,7 @@ export const getDefaultValues = json => {
       description: get(json, 'description.default'),
       packaging: get(json, 'packaging.default'),
       packageName: get(json, 'packageName.default'),
+      applicationId: get(json, 'applicationId.default'),
       java: get(json, 'javaVersion.default'),
     },
   }
@@ -173,6 +175,7 @@ export const getProject = function getProject(
       name: meta.name,
       description: meta.description,
       packageName: meta.packageName,
+      applicationId: meta.applicationId,
       packaging: meta.packaging,
       javaVersion: meta.java,
     })
