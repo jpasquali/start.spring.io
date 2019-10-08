@@ -35,8 +35,10 @@ initializr:
         mappings:
           - compatibilityRange: "[2.0.0.RELEASE,2.1.0.RELEASE)"
             version: 2.0.10
-          - compatibilityRange: "2.1.0.RELEASE"
+          - compatibilityRange: "[2.1.0.RELEASE, 2.2.0.M1)"
             version: 2.1.7
+          - compatibilityRange: "2.2.0.M1"
+            version: 2.2.0.M1
       codecentric-spring-boot-admin:
         groupId: de.codecentric
         artifactId: spring-boot-admin-dependencies
@@ -112,7 +114,10 @@ initializr:
         groupId: org.springframework.boot.experimental
         artifactId: spring-boot-bom-r2dbc
         mappings:
-          - compatibilityRange: "2.0.0.M6"
+          - compatibilityRange: "[2.2.0.M6,2.2.x.BUILD-SNAPSHOT)"
+            version: 0.1.0.M2
+            repositories: spring-milestones
+          - compatibilityRange: "2.2.x.BUILD-SNAPSHOT"
             version: 0.1.0.BUILD-SNAPSHOT
             repositories: spring-snapshots,spring-milestones
       spring-statemachine:
@@ -136,7 +141,7 @@ initializr:
           - compatibilityRange: "[2.0.0.M1,2.1.0.M1)"
             version: 10.0.17
           - compatibilityRange: "2.1.0.M1"
-            version: 14.0.5
+            version: 14.0.8
     gradle:
       dependency-management-plugin-version: 1.0.8.RELEASE
     kotlin:
@@ -266,7 +271,6 @@ initializr:
              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-jersey
         - name: Vaadin
           id: vaadin
-          compatibilityRange: "[2.0.0.M1,2.2.0.M1)"
           facets:
            - web
           groupId: com.vaadin
@@ -359,7 +363,7 @@ initializr:
           description: Okta specific configuration for Spring Security/Spring Boot OAuth2 features. Enable your Spring Boot application to work with Okta via OAuth 2.0/OIDC.
           groupId: com.okta.spring
           artifactId: okta-spring-boot-starter
-          compatibilityRange: "[2.1.2.RELEASE,2.2.0.M1)"
+          compatibilityRange: 2.1.2.RELEASE
           version: 1.2.1
           links:
             - rel: guide
@@ -375,6 +379,18 @@ initializr:
               href: https://github.com/okta/okta-spring-boot/blob/master/README.md
     - name: SQL
       content:
+        - name: JDBC API
+          id: jdbc
+          description: Database Connectivity API that defines how a client may connect and query a database.
+          links:
+            - rel: guide
+              href: https://spring.io/guides/gs/relational-data-access/
+              description: Accessing Relational Data using JDBC with Spring
+            - rel: guide
+              href: https://spring.io/guides/gs/managing-transactions/
+              description: Managing Transactions
+            - rel: reference
+              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-sql
         - name: Spring Data JPA
           id: data-jpa
           description: Persist data in SQL stores with Java Persistence API using Spring Data and Hibernate.
@@ -435,18 +451,6 @@ initializr:
           artifactId: h2
           scope: runtime
           starter: false
-        - name: JDBC API
-          id: jdbc
-          description: Database Connectivity API that defines how a client may connect and query a database.
-          links:
-            - rel: guide
-              href: https://spring.io/guides/gs/relational-data-access/
-              description: Accessing Relational Data using JDBC with Spring
-            - rel: guide
-              href: https://spring.io/guides/gs/managing-transactions/
-              description: Managing Transactions
-            - rel: reference
-              href: https://docs.spring.io/spring-boot/docs/{bootVersion}/reference/htmlsingle/#boot-features-sql
         - name: MyBatis Framework
           id: mybatis
           description: Persistence framework with support for custom SQL, stored procedures and advanced mappings. MyBatis couples objects with stored procedures or SQL statements using a XML descriptor or annotations.
@@ -590,7 +594,7 @@ initializr:
           compatibilityRange: 2.2.0.M5
           groupId: org.springframework.geode
           artifactId: spring-geode-starter
-          version: 1.2.0.M2
+          version: 1.2.0.RC1
           repository: spring-milestones
           description: Apache Geode is a data management platform that helps users build real-time, highly concurrent, highly performant and reliable Spring Boot applications at scale.
           links:
@@ -721,6 +725,22 @@ initializr:
             - rel: guide
               href: https://camel.apache.org/spring-boot
               description: Using Apache Camel with Spring Boot
+        - name: Solace PubSub+
+          id: solace
+          compatibilityRange: 2.1.0.RELEASE
+          description: Connect to a Solace PubSub+ Advanced Event Broker using the Solace Java API to send and receive messages.
+          groupId: com.solace.spring.boot
+          artifactId: solace-java-spring-boot-starter
+          version: 3.1.0
+          links:
+            - rel: reference
+              href: https://solace.dev
+              description: Solace Developer Portal
+            - rel: reference
+              href: https://github.com/SolaceProducts/solace-java-spring-boot
+            - rel: guide
+              href: https://github.com/SolaceProducts/solace-java-spring-boot/tree/master/solace-java-sample-app
+              description: Solace sample application using Java API.
     - name: I/O
       content:
         - name: Spring Batch
@@ -1106,7 +1126,6 @@ initializr:
           starter: false
     - name: Microsoft Azure
       bom: azure
-      compatibilityRange: "[2.0.0.RELEASE,2.2.0.M1)"
       content:
         - name: Azure Support
           id: azure-support
@@ -1226,8 +1245,6 @@ initializr:
       id: war
       default: false
   javaVersions:
-    - id: 12
-      default: false
     - id: 11
       default: false
     - id: 1.8
